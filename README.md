@@ -32,11 +32,18 @@ I used express framework, webpack task runner (webpack-dev-server for developmen
 If you don't want to work with webUI, you can simply make with params:
 
 - for select by company name:
+
 >order_tracking> node parsingTest.js company 'SuperTrader'
+
 - for select by address:
+
 >order_tracking> node parsingTest.js address 'Steindamm 80'
+
 - for delete by id:
+
 >order_tracking> node parsingTest.js remove '001'
+
 - for order how often each item has been ordered, in descending order:
+
 >order_tracking> node parsingTest.js order
 
