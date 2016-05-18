@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-type" content="text/html; charset=utf-8"/>
+    <title>{%= o.htmlWebpackPlugin.options.title %}</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.14/angular.min.js"></script>
+</head>
+<body ng-app="app">
+    <div class="container" ng-controller="OrdersCtrl">
+        <div class="header clearfix">
+            <h3 class="text-muted">Orders test</h3>
+        </div>
+        <div class="jumbotron">
+            <div class="row">
+
+                <div class="col-sm-7">
+                    <form class="form-horizontal">
+                        <div class="form-group">
+                            <label for="company_select" class="col-sm-7 control-label">Show all orders from a company</label>
+                            <div class="col-sm-5">
+                                <select id="company_select"
+                                        ng-model="company"
+                                        class="form-control"
+                                        ng-change="changeCompany(company);">
+                                    <option ng-repeat="company in selectors.companies" value="{{company}}">
+                                        {{company}}
+                                    </option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="address_select"
+                                   class="col-sm-7 control-label">Show all orders to address</label>
+                            <div class="col-sm-5">
+                                <select id="address_select"
+                                        class="form-control"
+                                        ng-model="address"
+                                        ng-change="changeAddress(address);">
+                                    <option ng-repeat="address in selectors.addresses" value="{{address}}">
+                                        {{address}}
+                                    </option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="order_select"
+                                   class="col-sm-7 control-label">Delete an order given an OrderId</label>
+                            <div class="col-sm-5">
+                                <select id="order_select"
+                                        class="form-control"
+                                        ng-model="id"
+                                        ng-change="deleteOrder(id);">
+                                    <option ng-repeat="id in selectors.ids" value="{{id}}">
+                                        {{id}}
+                                    </option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-7 control-label">Display how often each item has been ordered</label>
+                            <div class="col-sm-5">
+                                <button type="button" class="btn btn-default" ng-click="getOrdersCount();">Display</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="col-sm-5">
+                    <div class="form-group">
+                        <h4>Action result</h4>
+                        <textarea disabled="disabled"
+                                  rows="10"
+                                  cols="50"
+                                  id="result"  class="form-control" ng-model="actionResult">
+                        </textarea>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+</body>
+</html>
